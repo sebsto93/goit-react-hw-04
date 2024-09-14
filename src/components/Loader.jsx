@@ -1,11 +1,10 @@
 import React from 'react';
 import { Circles } from 'react-loader-spinner';
-import './Loader.module.css';
-
+import styles from './Loader.module.css'; 
 const Loader = () => {
   return (
-    <div className="loader">
-      <Circles color="#00BFFF" height={80} width={80} />
+    <div className={styles.loader}>
+      <Circles color="#00BFFF" height={50} width={50} />
     </div>
   );
 };

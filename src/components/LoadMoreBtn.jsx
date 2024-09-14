@@ -1,11 +1,18 @@
 import React from 'react';
-import './LoadMoreBtn.module.css';
+import styles from './LoadMoreBtn.module.css';
+import Loader from './Loader';
 
-const LoadMoreBtn = ({ onClick }) => {
+const LoadMoreBtn = ({ onClick, loading }) => {
   return (
-    <button onClick={onClick} className="load-more-btn">
-      Load more
-    </button>
+    <div className={styles.container}>
+      {loading ? (
+        <Loader /> 
+      ) : (
+        <button className={styles.button} onClick={onClick}>
+          Load More
+        </button>
+      )}
+    </div>
   );
 };
 

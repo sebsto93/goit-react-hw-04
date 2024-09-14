@@ -10,6 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import './App.css';
 
 const API_KEY = 'iRU1FJbCjL6PtN6q8X1gwk-qWsdJeH8e9DRn8y1cz9Y'; 
+
 const App = () => {
   const [images, setImages] = useState([]);
   const [query, setQuery] = useState('');
@@ -70,9 +71,9 @@ const App = () => {
       <Toaster />
       {error && <ErrorMessage message={error} />}
       <ImageGallery images={images} onImageClick={handleImageClick} />
-      {loading && <Loader />}
-      {images.length > 0 && images.length < totalResults && (
-        <LoadMoreBtn onClick={loadMoreImages} />
+      {loading && <Loader />} {}
+      {images.length > 0 && images.length < totalResults && !loading && ( 
+        <LoadMoreBtn onClick={loadMoreImages} loading={loading} /> 
       )}
       {selectedImage && <ImageModal image={selectedImage} onClose={closeModal} />}
     </div>
