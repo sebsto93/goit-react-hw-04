@@ -1,22 +1,25 @@
-.container {
+.buttonContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px; 
-  margin-top: 20px;
+  justify-content: center; /* Wyśrodkowanie przycisku poziomo */
+  margin-top: 20px; /* Odstęp nad przyciskiem */
+  margin-bottom: 20px; /* Odstęp pod przyciskiem */
 }
 
 .button {
-  background-color: #007bff; 
-  color: white; 
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
+  background-color: #007bff; /* Niebieski kolor tła */
+  color: white; /* Kolor tekstu */
+  border: none; /* Bez obramowania */
+  border-radius: 4px; /* Zaokrąglone rogi */
+  padding: 10px 20px; /* Wewnętrzne odstępy */
+  font-size: 16px; /* Rozmiar czcionki */
+  cursor: pointer; /* Wskaźnik ręki przy najechaniu */
+  transition: background-color 0.3s; /* Efekt przejścia dla koloru tła */
 }
 
-.button:disabled {
-  background-color: #d6d6d6; 
-  cursor: not-allowed;
+.button:hover {
+  background-color: #0056b3; /* Ciemniejszy odcień niebieskiego przy najechaniu */
+}
+
+.button:focus {
+  outline: none; /* Usunięcie domyślnej obramowania focus */
 }

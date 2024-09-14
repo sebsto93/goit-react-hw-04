@@ -1,9 +1,9 @@
 import React from 'react';
-import './ImageCard.module.css';
+import styles from './ImageCard.module.css';
 
 const ImageCard = ({ image, onClick }) => {
   return (
-    <div onClick={onClick} className="card">
+    <div className={styles.card} onClick={onClick}>
       <img src={image.urls.small} alt={image.alt_description} />
     </div>
   );

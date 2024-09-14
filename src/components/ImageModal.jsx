@@ -1,26 +1,20 @@
 import React from 'react';
 import Modal from 'react-modal';
-import './ImageModal.module.css';
+import styles from './ImageModal.module.css';
 
-Modal.setAppElement('#root');
-
-const ImageModal = ({ image, onClose }) => {
+const ImageModal = ({ isOpen, onRequestClose, image }) => {
   return (
     <Modal
-      isOpen={Boolean(image)}
-      onRequestClose={onClose}
-      className="modal"
-      overlayClassName="overlay"
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      className={styles.modal}
+      overlayClassName={styles.overlay}
+      ariaHideApp={false}
     >
-      <button onClick={onClose} className="close-btn">
+      <button className={styles.close} onClick={onRequestClose}>
         &times;
       </button>
-      <img src={image.urls.regular} alt={image.alt_description} className="modal-img" />
-      <div className="modal-info">
-        <p>Author: {image.user.name}</p>
-        <p>Likes: {image.likes}</p>
-        <p>Description: {image.description || 'No description available'}</p>
-      </div>
+      {image && <img src={image.urls.large} alt={image.alt_description} />}
     </Modal>
   );
 };
