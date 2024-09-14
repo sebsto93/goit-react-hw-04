@@ -1,8 +1,8 @@
 .loader {
-    position: fixed; /* Umożliwia wyśrodkowanie na całej stronie */
-    top: 95%; /* Ustawia środek na wysokości 50% strony */
-    left: 50%; /* Ustawia środek na szerokości 50% strony */
-    transform: translate(-50%, -50%); /* Przesuwa element o 50% jego własnej wysokości i szerokości, aby wyśrodkować */
-    z-index: 9999; /* Zapewnia, że loader będzie nad innymi elementami */
+    position: fixed; 
+    top: 95%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 9999; 
   }
   

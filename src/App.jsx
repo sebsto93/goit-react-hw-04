@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import ImageGallery from './components/ImageGallery';
@@ -9,7 +9,7 @@ import ImageModal from './components/ImageModal';
 import { Toaster } from 'react-hot-toast';
 
 const API_KEY = 'iRU1FJbCjL6PtN6q8X1gwk-qWsdJeH8e9DRn8y1cz9Y';
-const IMAGES_PER_PAGE = 12; // 3 rzędy po 4 obrazki
+const IMAGES_PER_PAGE = 12; 
 
 const App = () => {
   const [query, setQuery] = useState('');
@@ -18,7 +18,6 @@ const App = () => {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [modalImage, setModalImage] = useState(null);
-  const galleryRef = useRef(null);
 
   useEffect(() => {
     if (query) {
@@ -51,7 +50,6 @@ const App = () => {
 
   useEffect(() => {
     if (page > 1) {
-      
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
@@ -60,7 +58,11 @@ const App = () => {
   }, [images]);
 
   const handleImageClick = (image) => {
-    setModalImage(image);
+    
+    setModalImage(null);
+    setTimeout(() => {
+      setModalImage(image);
+    }, 0);
   };
 
   const handleCloseModal = () => {
@@ -71,7 +73,7 @@ const App = () => {
     <div>
       <SearchBar onSubmit={handleSearch} />
       {error && <ErrorMessage message={error} />}
-      <div ref={galleryRef}>
+      <div>
         <ImageGallery images={images} onImageClick={handleImageClick} />
       </div>
       {loading && <Loader />}

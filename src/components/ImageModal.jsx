@@ -3,6 +3,9 @@ import Modal from 'react-modal';
 import styles from './ImageModal.module.css';
 
 const ImageModal = ({ isOpen, onRequestClose, image }) => {
+  
+  if (!image) return null;
+
   return (
     <Modal
       isOpen={isOpen}
@@ -14,7 +17,7 @@ const ImageModal = ({ isOpen, onRequestClose, image }) => {
       <button className={styles.close} onClick={onRequestClose}>
         &times;
       </button>
-      {image && <img src={image.urls.large} alt={image.alt_description} />}
+      <img src={image.urls.large} alt={image.alt_description} className={styles.image} />
     </Modal>
   );
 };
