@@ -18,6 +18,7 @@ const ImageModal = ({ isOpen, onRequestClose, image }) => {
         &times;
       </button>
       <img src={image.urls.regular} alt={image.alt_description} className={styles.image} />
+      <p className={styles.description}>{image.alt_description}</p>
     </Modal>
   );
 };
