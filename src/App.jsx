@@ -32,30 +32,35 @@ const App = () => {
           setLoading(false);
         })
         .catch((error) => {
-          setError('Something went wrong. Please try again.');
+          setError({
+            message: error.response?.data?.errors?.[0] || 'Something went wrong. Please try again',
+            status: error.response?.status,
+          });
           setLoading(false);
         });
     }
   }, [query, page]);
 
   const handleSearch = (newQuery) => {
+    if (loading) return;
     setQuery(newQuery);
     setImages([]);
     setPage(1);
   };
 
   const handleLoadMore = () => {
+    if (loading) return;
     setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
-    if (page > 1) {
+    if (page > 1 && images.length > 0) {
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
       });
     }
-  }, [images]);
+  }, [page, images]);
 
   const handleImageClick = (image) => {
     

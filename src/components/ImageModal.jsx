@@ -17,7 +17,7 @@ const ImageModal = ({ isOpen, onRequestClose, image }) => {
       <button className={styles.close} onClick={onRequestClose}>
         &times;
       </button>
-      <img src={image.urls.large} alt={image.alt_description} className={styles.image} />
+      <img src={image.urls.regular} alt={image.alt_description} className={styles.image} />
     </Modal>
   );
 };
